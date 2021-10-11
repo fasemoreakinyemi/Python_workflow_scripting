@@ -10,7 +10,7 @@ reademption_main_folder = "READemption_analysis"
 reademption_main_folder_path = f"./analysis/{reademption_main_folder}"
 ftp_source="https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/210/855/GCF_000210855.2_ASM21085v2"
 salmonella_genome_path = f"{base_path}data/reference_sequences/salmonella.fa.gz"
-reademption_ref_seq_folder = f"{reademption_main_folder_path}/input/reads"
+reademption_ref_seq_folder = f"{reademption_main_folder_path}/input/reference_sequences"
 reads_folder_path = f"{base_path}data/reads"
 reademption_reads_folder = f"{reademption_main_folder_path}/input/reads"
 mapping_processes = 6
@@ -78,11 +78,11 @@ def align():
 	os.system(
 	f"{reademption_exe} align "
 				f"-p {mapping_processes} "
-				"-a 95" 
-				"-l 20"
-				"--poly_a_clipping" 
-				"--progress" 
-				"--split" 
+				"-a 95 " 
+				"-l 20 "
+				"--poly_a_clipping " 
+				"--progress " 
+				"--split " 
 				f"-f {reademption_main_folder_path}"
 	)
 
