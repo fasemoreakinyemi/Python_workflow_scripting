@@ -9,9 +9,6 @@ def good_morning():
 def good_night():
 	print("Good night world!")
 
-def good_morning():
-	print("Good morning world!")
-
 def main():
 	function_names = sys.argv
 	functions = {'hello_world': hello_world,
