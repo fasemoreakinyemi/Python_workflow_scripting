@@ -94,7 +94,8 @@ def main():
 				 'link_reference_sequence': link_reference_sequence,
 				 'gunzip_reference_sequences': gunzip_reference_sequences,
 				 'download_reads': download_reads,
-				 'link_reads': link_reads}
+				 'link_reads': link_reads,
+				 'align': align}
 	if "all" in function_names:
 		print("Executing entire workflow:")
 		for function_name in functions:
