@@ -2,6 +2,32 @@ import os
 import sys
 import glob
 
+
+def main():
+	function_names = sys.argv
+	functions = {
+		"create_folders": create_folders,
+		"create_reademption_project_folders": create_reademption_project_folders,
+		"download_reference_sequences": download_reference_sequences,
+		"link_reference_sequence": link_reference_sequence,
+		"gunzip_reference_sequences": gunzip_reference_sequences,
+		"download_reads": download_reads,
+		"link_reads": link_reads,
+		"align": align,
+	}
+	if "all" in function_names:
+		print("Executing entire workflow:")
+		for function_name in functions:
+			functions[function_name]()
+	else:
+		print(f"Executing functions {', '.join(sys.argv[1:])}:")
+		for function_name in sys.argv[1:]:
+			functions[function_name]()
+
+
+
+
+
 # Set folder names and paths
 base_path = "./"
 project_folders = [
@@ -110,26 +136,6 @@ def align():
     )
 
 
-def main():
-    function_names = sys.argv
-    functions = {
-        "create_folders": create_folders,
-        "create_reademption_project_folders": create_reademption_project_folders,
-        "download_reference_sequences": download_reference_sequences,
-        "link_reference_sequence": link_reference_sequence,
-        "gunzip_reference_sequences": gunzip_reference_sequences,
-        "download_reads": download_reads,
-        "link_reads": link_reads,
-        "align": align,
-    }
-    if "all" in function_names:
-        print("Executing entire workflow:")
-        for function_name in functions:
-            functions[function_name]()
-    else:
-        print(f"Executing functions {', '.join(sys.argv[1:])}:")
-        for function_name in sys.argv[1:]:
-            functions[function_name]()
 
 
 main()
