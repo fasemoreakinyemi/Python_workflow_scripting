@@ -17,7 +17,9 @@ mapping_processes = 6
 
 
 
-# create the base folders for the project
+# Create the base folders for the project
+# Example for using os.mkdir to create folders
+# Base path can be changed to create the folders in a different folder
 def create_folders():
 	for folder in project_folders:
 		full_path = base_path + folder
@@ -27,13 +29,15 @@ def create_folders():
 		else:
 			print(f"Folder {full_path} already exists")
 
-# create the reademption input and output folders
+# Create the reademption input and output folders
+# Example for calling a program via the command line and passing an argument that is stored in a global variable
 def create_reademption_project_folders():
 	os.system(
 	f"{reademption_exe} create -f {reademption_main_folder_path}"
 	)
 
-# download salmonella reference genome
+# Download salmonella reference genome
+# Example for downloading files via wget
 def download_reference_sequences():
 	os.system(
 	f"wget -O {salmonella_genome_path} "
@@ -41,12 +45,14 @@ def download_reference_sequences():
 	)
 
 # Unpack the salmonella reference genome
+# Example for unpacking and using a global variable
 def gunzip_reference_sequences():
 	os.system(
 	f"gunzip {salmonella_genome_path}"
 	)
 
 # Link the reference genome to READemption input folder
+# Example for using string manipulation
 def link_reference_sequence():
 	salmonella_genome_path_unpacked = salmonella_genome_path.rsplit(".gz")[0]
 	salmonella_genome = os.path.basename(salmonella_genome_path_unpacked)
@@ -56,6 +62,7 @@ def link_reference_sequence():
 	)
 
 # Download the read files
+# Example for using a for-loop
 def download_reads():
 	base_url="http://reademptiondata.imib-zinf.net/"
 	read_files=["InSPI2_R1.fa.bz2", "InSPI2_R2.fa.bz2", "LSP_R1.fa.bz2", "LSP_R2.fa.bz2"]
@@ -65,6 +72,7 @@ def download_reads():
 		)
 
 # Link the read files to READemption input folder
+# Example for globbing
 def link_reads():
 	read_files = glob.glob(f"{reads_folder_path}/*fa.bz2")
 	for read_file_path in read_files:
