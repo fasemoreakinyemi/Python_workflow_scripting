@@ -1,0 +1,22 @@
+rule all:
+	input:
+	     "output/first_names.txt",
+	     "output/last_names.txt"
+
+rule find_first_name:
+	input:
+	     "firstname",
+	     "input/names.txt"
+	output:
+	     "output/first_names.txt"
+	script:
+	     "scripts/names.py"
+
+rule find_last_name:
+	input:
+             "lastname",
+	     "input/names.txt"
+	output:
+	     "output/last_names.txt"
+	script:
+	     "scripts/names.py"
